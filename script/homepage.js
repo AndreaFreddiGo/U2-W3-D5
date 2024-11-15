@@ -50,5 +50,10 @@ fetch(TANNICRUD_URL, {
   })
 
 //  per concludere cerco di tenere aggiornato l'anno visualizzato nel footer
-const currentYear = document.getElementById('current-year') // seleziono lo span
-currentYear.innerText = new Date().getFullYear() // recupero l'anno corrente e ce lo ficco
+const currentYear = document.getElementById('current-year')
+currentYear.innerText = new Date().getFullYear()
+
+const spinner = document.getElementById('spinner')
+document.addEventListener('DOMContentLoaded', () => {
+  spinner.classList.add('d-none')
+})

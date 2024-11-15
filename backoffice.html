@@ -74,6 +74,14 @@
             </ul>
           </div>
         </div>
+        <!-- ho aggiunto uno spinner, indicatore di caricamento, che sparirà a pagina caricata -->
+        <div
+          id="spinner"
+          class="spinner-border text-danger-emphasis opacity-75 me-3"
+          role="status"
+        >
+          <span class="fs-6 fw-bold">T</span>
+        </div>
       </nav>
       <div
         class="d-flex align-items-center justify-content-center bg-warning-subtle opacity-75 mt-3"
@@ -88,14 +96,14 @@
       <div class="container">
         <div class="row justify-content-center">
           <div
-            class="col col-12 col-md-8 col-lg-6 bg-warning-subtle m-5 p-3 rounded-3 border border-3 border-dark"
+            class="col col-12 col-md-8 col-lg-6 bg-warning-subtle m-3 p-3 rounded-3 border border-3 border-dark"
           >
             <!-- creo form per l'inserimento di nuovi vini, la modifica o la cancellazione -->
             <form id="wine-form">
               <div class="mb-3 opacity-100">
                 <label
                   for="name"
-                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  class="form-label fs-5 text-danger-emphasis mb-1 fw-semibold"
                   >Nome vino</label
                 >
                 <input type="text" class="form-control" id="name" required />
@@ -103,7 +111,7 @@
               <div class="mb-3">
                 <label
                   for="description"
-                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  class="form-label fs-5 text-danger-emphasis mb-1 fw-semibold"
                   >Descrizione prodotto</label
                 >
                 <input
@@ -116,7 +124,7 @@
               <div class="mb-3">
                 <label
                   for="brand"
-                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  class="form-label fs-5 text-danger-emphasis mb-1 fw-semibold"
                   >Nome azienda vinicola</label
                 >
                 <input type="text" class="form-control" id="brand" required />
@@ -124,7 +132,7 @@
               <div class="mb-3">
                 <label
                   for="image"
-                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  class="form-label fs-5 text-danger-emphasis mb-1 fw-semibold"
                   >Immagine prodotto</label
                 >
                 <input type="text" class="form-control" id="image" required />
@@ -132,7 +140,7 @@
               <div class="mb-3">
                 <label
                   for="price"
-                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  class="form-label fs-5 text-danger-emphasis mb-1 fw-semibold"
                   >Prezzo bottiglia</label
                 >
                 <input type="number" class="form-control" id="price" required />
