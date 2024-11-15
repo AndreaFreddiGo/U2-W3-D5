@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TanniCRUD</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/backoffice.css" />
+  </head>
+  <body class="vh-100 d-flex flex-column">
+    <header class="text-center">
+      <!-- creo la mia navbar che sarà disponibile anche nella homepage e con i link che possano portare
+         alle diverse pagine (homepage e back-office) -->
+      <nav
+        class="navbar navbar-expand-lg bg-warning-subtle shadow-lg opacity-75"
+      >
+        <div class="container-fluid">
+          <a
+            class="navbar-brand text-danger-emphasis fw-semibold"
+            href="./homepage.html"
+          >
+            <img
+              src="./assets/images/TanniCRUD-Logo.png"
+              alt="Bootstrap"
+              height="40"
+            />
+            TanniCRUD</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- collego le pagine -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-danger-emphasis fw-semibold"
+                  aria-current="page"
+                  href="./homepage.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-danger-emphasis fw-semibold"
+                  href="./backoffice.html"
+                  >Backoffice</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-danger-emphasis fw-semibold" href="#"
+                  >Contatti</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="d-flex align-items-center justify-content-center bg-warning-subtle opacity-75 mt-3"
+      >
+        <h1 class="fw-semibold text-danger-emphasis px-3 my-2">TanniCRUD</h1>
+        <h3 class="fw-semibold text-danger-emphasis px-3 my-2">
+          Cantina di TanniCRUD - aggiunta, modifica ed eliminazione prodotti
+        </h3>
+      </div>
+    </header>
+    <main class="flex-grow-1">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div
+            class="col col-12 col-md-8 col-lg-6 bg-warning-subtle m-5 p-3 rounded-3 border border-3 border-dark"
+          >
+            <!-- creo form per l'inserimento di nuovi vini, la modifica o la cancellazione -->
+            <form id="wine-form">
+              <div class="mb-3 opacity-100">
+                <label
+                  for="name"
+                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  >Nome vino</label
+                >
+                <input type="text" class="form-control" id="name" required />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="description"
+                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  >Descrizione prodotto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="brand"
+                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  >Nome azienda vinicola</label
+                >
+                <input type="text" class="form-control" id="brand" required />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="image"
+                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  >Immagine prodotto</label
+                >
+                <input type="text" class="form-control" id="image" required />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="price"
+                  class="form-label fs-5 text-danger-emphasis mb-1"
+                  >Prezzo bottiglia</label
+                >
+                <input type="number" class="form-control" id="price" required />
+              </div>
+              <div class="d-flex justify-content-between">
+                <button
+                  id="saveButton"
+                  type="submit"
+                  class="btn btn-outline-success"
+                >
+                  SALVA PRODOTTO
+                </button>
+                <button
+                  id="resetButton"
+                  type="button"
+                  class="btn btn-outline-warning"
+                >
+                  RESET FORM
+                </button>
+                <!-- <button
+                  id="deleteButton"
+                  type="submit"
+                  class="btn btn-outline-danger"
+                >
+                  ELIMINA PRODOTTO
+                </button> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-warning-subtle py-2 shadow-lg opacity-75">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div
+            class="col col-12 col-md-4 text-center d-flex justify-content-center align-items-center"
+          >
+            <p class="mb-0 text-danger-emphasis fw-semibold">
+              TanniCRUD - <span id="current-year"></span>
+            </p>
+          </div>
+          <div class="col col-12 col-md-4 text-center">
+            <ul class="list-unstyled mb-0 d-flex justify-content-center">
+              <li class="text-danger-emphasis fw-semibold mx-3">Home</li>
+              <li class="text-danger-emphasis fw-semibold mx-3">Contatti</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script/backoffice.js"></script>
+  </body>
+</html>
