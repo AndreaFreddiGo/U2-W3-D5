@@ -19,6 +19,77 @@ const priceInput = document.getElementById('price')
 // metto l'URL all'interno di una costante per poter essere più facilmente utilizzato
 const TANNICRUD_URL = 'https://striveschool-api.herokuapp.com/api/product/'
 
+// ora verifico se esiste un wineId nella barra degli indirizzi
+const addressBarContent = new URLSearchParams(window.location.search)
+const wineId = addressBarContent.get('wineId')
+
+// se trovo un ID sono arrivato alla pagina di backoffice cliccando nel modale di dettaglio del prodotto
+// quindi avrò a disposizione una versione della pagina di backoffice con tutti gli input field ricaricati
+// con i dati del prodotto, pronti per poter essere modificati, dandomi anche la possibilità di eliminare il prodotto
+
+// MODALITA' MODIFICA
+if (wineId) {
+  // esiste l'ID, quindi mi si apre la versione della pagina backoffice dedicata a modifica ed eliminazione prodotto
+  // per prima cosa, quindi, nascondo il bottone "salva" e lascio solo "modifica" ed "elimina" (oltre al reset)
+
+  const saveButton = document.getElementById('saveButton')
+  saveButton.classList.add('d-none')
+
+  // eseguo una GET direttamente sul singolo prodotto che mi interessa
+  fetch(TANNICRUD_URL + '/' + wineId, {
+    headers: {
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzM3MWM1NDhhZDEyOTAwMTU4NzZjMjIiLCJpYXQiOjE3MzE2NjQ5ODEsImV4cCI6MTczMjg3NDU4MX0.kkM1d_iF6SLAVc1L7ZwMPvV0xh5O2Sby9W7eXVidOZ4',
+      // stavolta per poter accedere dobbiamo inserire la nostra KEY generata in fase di sign-in
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error('Errore nel recupero informazioni re-compilazione form')
+      }
+    })
+    .then((targetWine) => {
+      document.getElementById('name').value = targetWine.name
+      document.getElementById('description').value = targetWine.description
+      document.getElementById('brand').value = targetWine.brand
+      document.getElementById('image').value = targetWine.imageUrl
+      document.getElementById('price').value = targetWine.price
+    })
+    .catch((err) => console.log('errore', err))
+
+  const deleteWine = function () {
+    fetch(TANNICRUD_URL + '/' + wineId, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzM3MWM1NDhhZDEyOTAwMTU4NzZjMjIiLCJpYXQiOjE3MzE2NjQ5ODEsImV4cCI6MTczMjg3NDU4MX0.kkM1d_iF6SLAVc1L7ZwMPvV0xh5O2Sby9W7eXVidOZ4',
+        // anche stavolta per poter accedere dobbiamo inserire la nostra KEY generata in fase di sign-in
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          //   // ELIMINAZIONE AVVENUTA CON SUCCESSO
+          //   alert('Concerto eliminato!')
+          // mi riporta in homepage
+          window.location.assign('./homepage.html')
+        } else {
+          throw new Error("Errore nell'eliminazione del prodotto")
+        }
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  }
+
+  // e abilito il bottone "ELIMINA" (che ora targhettizzo) affinchè possa eliminare l'elemento visualizzato
+  const deleteButton = document.getElementById('deleteButton')
+  deleteButton.addEventListener('click', deleteWine)
+} else {
+  // modalità creazione!
+}
+
 // creo il form per la gestione dell'inserimento di nuovi prodotti
 const form = document.getElementById('wine-form')
 form.addEventListener('submit', (e) => {

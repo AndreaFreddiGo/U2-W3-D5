@@ -5,3 +5,7 @@ body {
   background-size: cover;
   background-position-x: center;
 }
+
+#form {
+  background-color: rgb(255, 243, 205, 0.9);
+}

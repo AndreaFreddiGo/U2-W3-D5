@@ -96,19 +96,74 @@
       <div class="container">
         <div class="row justify-content-center g-3" id="wine-row"></div>
       </div>
+
+      <!-- aggiungo un modale che mi faccia visualizzare i dettagli del vino quando si clicca sul bottone "dettagli" -->
+      <div
+        class="modal fade"
+        id="wineModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered rounded-3">
+          <div class="modal-content border border-3 border-light-subtle p-3">
+            <div class="modal-header border-dark">
+              <h1 class="modal-title fs-5 text-danger-emphasis"></h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="p-3 d-flex bg-transparent">
+              <img class="modal-img w-50" src="" alt="wine image" />
+              <div class="flex-grow-1">
+                <p
+                  class="modal-brand fs-6 lead text-danger-emphasis d-block text-end mx-2 mb-2"
+                ></p>
+                <p
+                  class="modal-price fs-6 lead text-danger-emphasis d-block text-end m-2 pb-2 border-bottom border-1 border-dark"
+                ></p>
+                <p
+                  class="modal-description fs-6 lead text-danger-emphasis d-block text-end m-2"
+                ></p>
+              </div>
+            </div>
+            <div class="modal-footer border-dark">
+              <a
+                href=""
+                id="modifyButton"
+                type="button"
+                class="btn btn-outline-danger"
+              >
+                Modifica o elimina
+              </a>
+              <button
+                type="button"
+                class="btn btn-outline-dark"
+                data-bs-dismiss="modal"
+              >
+                Chiudi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- il modale finisce qui -->
     </main>
     <footer class="bg-warning-subtle py-2 shadow-lg opacity-75">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div
-            class="col col-12 col-md-4 text-center d-flex justify-content-center align-items-center"
-          >
+          <div class="col col-12 col-md-4 text-end align-items-center">
             <p class="mb-0 text-danger-emphasis fw-semibold">
               TanniCRUD - <span id="current-year"></span>
             </p>
           </div>
-          <div class="col col-12 col-md-4 text-center">
-            <ul class="list-unstyled mb-0 d-flex justify-content-center">
+          <div class="col col-12 col-md-4 text-start">
+            <ul class="list-unstyled mb-0 d-flex justify-content-start">
               <li class="text-danger-emphasis fw-semibold mx-3">Home</li>
               <li class="text-danger-emphasis fw-semibold mx-3">Contatti</li>
             </ul>

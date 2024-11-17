@@ -5,3 +5,23 @@ body {
   background-size: cover;
   background-position-x: center;
 }
+
+#bodyCard {
+  background-color: rgb(255, 243, 205, 0.8);
+}
+
+.card img {
+  background-color: rgb(255, 243, 205, 0.8);
+}
+
+.img-fluid {
+  max-width: 200px;
+}
+
+.modal-body div {
+  background-color: rgb(255, 243, 205, 0.9);
+}
+
+.modal-content {
+  background-color: rgb(255, 243, 205, 0.9);
+}
