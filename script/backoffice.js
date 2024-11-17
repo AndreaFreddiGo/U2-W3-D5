@@ -79,8 +79,6 @@ if (wineId) {
     })
       .then((response) => {
         if (response.ok) {
-          // mi riporta in homepage
-          window.location.assign('./homepage.html')
         } else {
           throw new Error("Errore nell'eliminazione del prodotto")
         }
@@ -90,9 +88,20 @@ if (wineId) {
       })
   }
 
-  // e abilito il bottone "ELIMINA" (che ora targhettizzo) affinchè possa eliminare l'elemento visualizzato
-  const deleteButton = document.getElementById('deleteButton')
-  deleteButton.addEventListener('click', deleteWine)
+  // e abilito il bottone di conferma del modale (che ora targhettizzo) affinchè possa eliminare l'elemento visualizzato
+  //   non il tasto "ELIMINA" direttamente, perché quello aprirà appena il modale di richiesta conferma
+
+  //   creo la funzione che mi riporta in homepage che andrò ad applicare al click del bottone dell'ultimo modale
+  const backToHomepage = () => {
+    window.location.assign('./homepage.html')
+  }
+
+  const confirmButton = document.getElementById('confirmButton')
+  confirmButton.addEventListener('click', deleteWine)
+  const closingButton = document.getElementById('closingButton')
+  closingButton.addEventListener('click', backToHomepage)
+
+  // mi riporta in homepage
 } else {
   // MODALITA' CREAZIONE
   // se mi trovo qui allora non esiste l'ID, quindi mi si apre la versione della pagina backoffice dedicata al salvataggio di un nuovo prodotto
@@ -136,14 +145,12 @@ form.addEventListener('submit', (e) => {
     .then((response) => {
       if (response.ok) {
         if (fetchMethod === 'POST') {
-          alert('VINO SALVATO!')
           nameInput.value = ''
           descriptionInput.value = ''
           brandInput.value = ''
           imageUrlInput.value = ''
           priceInput.value = ''
         } else {
-          alert('VINO MODIFICATO!')
         }
       } else {
         throw new Error('Errore nel salvataggio del prodotto')

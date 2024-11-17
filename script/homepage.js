@@ -24,13 +24,13 @@ fetch(TANNICRUD_URL, {
       const newCard = document.createElement('div')
       newCard.classList.add('col', 'col-12', 'col-md-6', 'col-lg-4')
       newCard.innerHTML = `
-            <div class="card mb-3 border border-3 border-light-subtle shadow-lg bg-transparent rounded-3" style="max-width: 540px;">
-                <div class="row g-0">
+            <div class="card mb-3 border border-3 border-light-subtle shadow-lg bg-transparent rounded-3 h-100">
+                <div class="row g-0 h-100">
                     <div class="col-4">
-                        <img src=${wine.imageUrl} class="img-fluid w-100 rounded-start" alt="wine-photo">
+                        <img src=${wine.imageUrl} class="img-fluid w-100 h-100 rounded-start" alt="wine-photo">
                     </div>
-                    <div id="bodyCard" class="col-8 d-flex ">
-                        <div class="card-body d-flex flex-column align-items-end ">
+                    <div id="bodyCard" class="col-8 d-flex">
+                        <div class="card-body d-flex flex-column align-items-end">
                             <h5 class=" card-title text-danger-emphasis text-end fs-4 my-1 pb-2 border-bottom border-1 border-dark">${wine.name}</h5>
                             <p class="card-text text-danger-emphasis text-end fs-5 my-1 p-0 ">${wine.brand}</p>
                             <p class="card-text text-danger-emphasis d-none text-end my-1 p-0 ">Prezzo: ${wine.price}€</p>

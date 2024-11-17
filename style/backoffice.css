@@ -9,3 +9,11 @@ body {
 #form {
   background-color: rgb(255, 243, 205, 0.9);
 }
+
+.modal-body div {
+  background-color: rgb(255, 243, 205, 0.9);
+}
+
+.modal-content {
+  background-color: rgb(255, 243, 205, 0.9);
+}

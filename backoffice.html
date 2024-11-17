@@ -77,7 +77,7 @@
         <!-- ho aggiunto uno spinner, indicatore di caricamento, che sparirà a pagina caricata -->
         <div
           id="spinner"
-          class="spinner-border text-danger-emphasis opacity-75 me-3"
+          class="spinner-border text-danger-emphasis opacity-75 me-5"
           role="status"
         >
           <span class="fs-6 fw-bold">T</span>
@@ -147,19 +147,37 @@
                 <input type="number" class="form-control" id="price" required />
               </div>
               <div class="d-flex justify-content-between">
-                <button id="saveButton" type="submit" class="btn btn-success">
+                <button
+                  id="saveButton"
+                  type="submit"
+                  class="btn btn-outline-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#saveModifyModal"
+                >
                   SALVA PRODOTTO
                 </button>
-                <button id="modifyButton" type="submit" class="btn btn-warning">
+                <button
+                  id="modifyButton"
+                  type="submit"
+                  class="btn btn-outline-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#saveModifyModal"
+                >
                   MODIFICA PRODOTTO
                 </button>
-                <button id="deleteButton" type="button" class="btn btn-danger">
+                <button
+                  id="deleteButton"
+                  type="button"
+                  class="btn btn-outline-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
                   ELIMINA PRODOTTO
                 </button>
                 <button
                   id="resetButton"
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-outline-secondary"
                 >
                   CANCELLA I CAMPI
                 </button>
@@ -168,16 +186,126 @@
           </div>
         </div>
       </div>
+      <!-- aggiungo un modale che mi chieda se voglio proseguire con l'operazione di eliminazione -->
+      <div
+        class="modal fade"
+        id="deleteModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered rounded-3">
+          <div class="modal-content border border-3 border-light-subtle p-3">
+            <div class="modal-header border-dark">
+              <h1 class="modal-title fs-6 text-danger-emphasis">
+                SI CONFERMA DI VOLER PROCEDERE?
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button
+                id="confirmButton"
+                type="button"
+                class="btn btn-success fs-3 fw-bold m-0 px-4"
+                data-bs-toggle="modal"
+                data-bs-target="#confirmModal"
+              >
+                SÌ
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger fs-3 fw-bold m-0 px-3"
+                data-bs-dismiss="modal"
+              >
+                NO
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- il modale finisce qui -->
+      <!-- aggiungo un altro modale che mi conferma l'operazione di eliminazione -->
+      <div
+        class="modal fade"
+        id="confirmModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered rounded-3">
+          <div class="modal-content border border-3 border-light-subtle p-3">
+            <div class="modal-header border-dark">
+              <h1 class="modal-title fs-6 text-danger-emphasis">
+                ELIMINAZIONE AVVENUTA CON SUCCESSO!!
+              </h1>
+            </div>
+            <div class="modal-footer d-flex justify-content-end">
+              <button
+                id="closingButton"
+                type="button"
+                class="btn btn-dark"
+                data-bs-dismiss="modal"
+              >
+                Chiudi e torna in Homepage
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- il modale finisce qui -->
+      <!-- ne aggiungo un altro che mi confermi le operazioni di salvataggio o modifica-->
+      <div
+        class="modal fade"
+        id="saveModifyModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered rounded-3">
+          <div class="modal-content border border-3 border-light-subtle p-3">
+            <div class="modal-header border-dark">
+              <h1 class="modal-title fs-6 text-danger-emphasis">
+                OPERAZIONE AVVENUTA CON SUCCESSO!!
+              </h1>
+            </div>
+            <div class="modal-footer d-flex justify-content-end">
+              <button
+                id="closingButton"
+                type="button"
+                class="btn btn-dark"
+                data-bs-dismiss="modal"
+              >
+                Chiudi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- il modale finisce qui -->
     </main>
-    <footer class="bg-warning-subtle py-2 shadow-lg opacity-75">
+    <footer class="bg-warning-subtle py-2 shadow-lg opacity-75 mt-3">
       <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col col-12 col-md-4 text-end align-items-center">
-            <p class="mb-0 text-danger-emphasis fw-semibold">
+        <div class="row">
+          <div class="col col-5 text-end px-0">
+            <p class="mb-0 mx-3 text-danger-emphasis fw-semibold">
               TanniCRUD - <span id="current-year"></span>
             </p>
           </div>
-          <div class="col col-12 col-md-4 text-start">
+          <div class="col col-2 text-center px-0">
+            <img src="./assets/images/TanniCRUD-Logo.png" height="20" />
+          </div>
+          <div class="col col-5 text-start px-0">
             <ul class="list-unstyled mb-0 d-flex justify-content-start">
               <li class="text-danger-emphasis fw-semibold mx-3">Home</li>
               <li class="text-danger-emphasis fw-semibold mx-3">Contatti</li>
