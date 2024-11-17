@@ -88,7 +88,7 @@ wineModal.addEventListener('show.bs.modal', function (event) {
   const modalBrand = wineModal.querySelector('.modal-brand')
   modalBrand.textContent = wineBrand
   const modalPrice = wineModal.querySelector('.modal-price')
-  modalPrice.textContent = 'Prezzo: ' + winePrice
+  modalPrice.textContent = 'Prezzo: ' + winePrice + '€'
   const modalDescription = wineModal.querySelector('.modal-description')
   modalDescription.textContent = wineDescription
   const modifyButton = wineModal.querySelector('#modifyButton')
