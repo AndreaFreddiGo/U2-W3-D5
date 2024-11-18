@@ -22,7 +22,7 @@ fetch(TANNICRUD_URL, {
     const row = document.getElementById('wine-row')
     arrayOfWines.forEach((wine) => {
       const newCard = document.createElement('div')
-      newCard.classList.add('col', 'col-12', 'col-md-6', 'col-lg-4')
+      newCard.classList.add('col', 'col-10', 'col-md-6', 'col-lg-4')
       newCard.innerHTML = `
             <div class="card mb-3 border border-3 border-light-subtle shadow-lg bg-transparent rounded-3 h-100">
                 <div class="row g-0 h-100">

@@ -1,9 +1,14 @@
 body {
   font-family: 'Roboto';
-  background-image: url(../assets/images/pngtree-the-vineyard-rows-of-a-valley-at-sunrise-picture-image_3523487.jpg);
+  background-image: url(../assets/images/shutterstock_1572382495-scaled.jpg);
+  background-repeat: no-repeat;
+  background-size: 380vh;
+}
 
-  background-size: cover;
-  background-position-x: center;
+@media screen and (min-width: 768px) {
+  body {
+    background-size: cover;
+  }
 }
 
 #bodyCard {
@@ -15,7 +20,7 @@ body {
 }
 
 .img-fluid {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 .modal-body div {

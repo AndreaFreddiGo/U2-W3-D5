@@ -162,7 +162,7 @@ form.addEventListener('submit', (e) => {
 })
 
 // faccio in modo che il bottone reset mi permette di resettare tutti i campi compilati
-const resetButton = document.getElementById('resetButton')
+const resetButton = document.getElementById('confirmResetButton')
 resetButton.addEventListener('click', () => {
   nameInput.value = ''
   descriptionInput.value = ''

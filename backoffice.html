@@ -178,6 +178,8 @@
                   id="resetButton"
                   type="button"
                   class="btn btn-outline-secondary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#resetModal"
                 >
                   CANCELLA I CAMPI
                 </button>
@@ -200,7 +202,7 @@
           <div class="modal-content border border-3 border-light-subtle p-3">
             <div class="modal-header border-dark">
               <h1 class="modal-title fs-6 text-danger-emphasis">
-                SI CONFERMA DI VOLER PROCEDERE?
+                SI CONFERMA DI VOLER PROCEDERE CON L'ELIMINAZIONE?
               </h1>
               <button
                 type="button"
@@ -287,6 +289,50 @@
                 data-bs-dismiss="modal"
               >
                 Chiudi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- il modale finisce qui -->
+      <!-- ed infine un modale che mi chieda se voglio proseguire con l'operazione di reset dei campi -->
+      <div
+        class="modal fade"
+        id="resetModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered rounded-3">
+          <div class="modal-content border border-3 border-light-subtle p-3">
+            <div class="modal-header border-dark">
+              <h1 class="modal-title fs-6 text-danger-emphasis">
+                SI CONFERMA DI VOLER PROCEDERE CON LA CANCELLAZIONE DEI CAMPI?
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+              <button
+                id="confirmResetButton"
+                type="button"
+                class="btn btn-success fs-3 fw-bold m-0 px-4"
+                data-bs-dismiss="modal"
+              >
+                SÌ
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger fs-3 fw-bold m-0 px-3"
+                data-bs-dismiss="modal"
+              >
+                NO
               </button>
             </div>
           </div>
